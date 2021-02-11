@@ -6,12 +6,8 @@ import { Circle } from './circle'
 
 function generateSquare(position: IPosition, color: string): IShape {
   const size = generateRandomNumber(30, 110)
-  const squarePosition = {
-    x: position.x - size / 2,
-    y: position.y - size / 2,
-  }
 
-  return new Square(squarePosition, color, size)
+  return new Square(position, color, size)
 }
 
 function generateCircle(position: IPosition, color: string): IShape {

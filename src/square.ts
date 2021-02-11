@@ -15,7 +15,7 @@ class Square implements IShape {
     const { position, color, size } = this
 
     canvasContext.fillStyle = color
-    canvasContext.fillRect(position.x, position.y, size, size)
+    canvasContext.fillRect(position.x - size / 2, position.y - size / 2, size, size)
   }
 }
 

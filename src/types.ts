@@ -4,6 +4,7 @@ interface IPosition {
 }
 
 interface IShape {
+  /* Shape's position is a center of the shape */
   position: IPosition,
   color: string,
   draw(canvasContext: CanvasRenderingContext2D): void,
