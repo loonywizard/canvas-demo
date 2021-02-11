@@ -13,9 +13,12 @@ class Square implements IShape {
 
   draw(canvasContext: CanvasRenderingContext2D): void {
     const { position, color, size } = this
+    const dpi = window.devicePixelRatio
 
     canvasContext.fillStyle = color
-    canvasContext.fillRect(position.x - size / 2, position.y - size / 2, size, size)
+    canvasContext.fillRect(
+      (position.x - size / 2) * dpi, (position.y - size / 2) * dpi, size * dpi, size * dpi
+    )
   }
 }
 

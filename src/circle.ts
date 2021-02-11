@@ -13,11 +13,14 @@ class Circle implements IShape {
 
   draw(canvasContext: CanvasRenderingContext2D): void {
     const { position, color, radius } = this
+    const dpi = window.devicePixelRatio
 
     canvasContext.fillStyle = color
     
     canvasContext.beginPath()
-    canvasContext.arc(position.x, position.y, radius, 0, 2 * Math.PI, true)
+    canvasContext.arc(
+      position.x * dpi, position.y * dpi, radius * dpi, 0, 2 * Math.PI, true
+    )
     canvasContext.fill()
   }
 }
