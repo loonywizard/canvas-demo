@@ -1,0 +1,34 @@
+{
+  "name": "@loonywizard/canvas-demo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Canvas Demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loonywizard/canvas-demo.git"
+  },
+  "author": "Vladimir Nikitin vladimirsuperwizard@gmail.com",
+  "homepage": "https://github.com/loonywizard/canvas-demo",
+  "scripts": {
+    "dev": "webpack serve --config webpack.config.dev.js",
+    "lint": "eslint src --ext .ts"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/html-webpack-plugin": "^3.2.4",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "babel-loader": "^8.2.1",
+    "eslint": "^7.14.0",
+    "eslint-plugin-import": "^2.22.1",
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
+    "html-webpack-plugin": "5.0.0-alpha.4",
+    "ts-loader": "^8.0.11",
+    "typescript": "^4.1.2",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
