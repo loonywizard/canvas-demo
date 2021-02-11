@@ -24,7 +24,10 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
-  plugins: [new HtmlWebpackPlugin(), new ForkTsCheckerWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({ template: './assets/index.html' }), 
+    new ForkTsCheckerWebpackPlugin(),
+  ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
