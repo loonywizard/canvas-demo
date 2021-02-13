@@ -1,21 +1,14 @@
-import { IPosition, IRGBColor, IShape } from './types'
+import { IPosition, IRGBColor } from './types'
 import { generateCanvasFillStyle } from './generateCanvasFillStyle'
+import { Shape } from './shape'
 
-class Circle implements IShape {
-  position: IPosition
+class Circle extends Shape {
   radius: number
-  color: IRGBColor
-
-  isHovered: boolean
-  isActive: boolean
 
   constructor(position: IPosition, color: IRGBColor, radius: number) {
-    this.position = position
-    this.color = color
+    super(position, color)
+    
     this.radius = radius
-  
-    this.isHovered = false
-    this.isActive = false
   }
 
   getIsMouseOverShape(mousePosition: IPosition): boolean {
@@ -24,20 +17,6 @@ class Circle implements IShape {
     return (
       (position.x - mousePosition.x) ** 2 + (position.y - mousePosition.y) ** 2 <= radius ** 2
     )
-  }
-
-  onMouseMove(mousePosition: IPosition): void {
-    this.isHovered = this.getIsMouseOverShape(mousePosition)
-  }
-
-  onClick(mousePosition: IPosition): boolean {
-    const isMouseOverShape = this.getIsMouseOverShape(mousePosition)
-
-    if (isMouseOverShape) {
-      this.isActive = !this.isActive
-    }
-
-    return isMouseOverShape
   }
 
   draw(canvasContext: CanvasRenderingContext2D): void {

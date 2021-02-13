@@ -1,8 +1,9 @@
-import { IPosition, IShape } from './types'
+import { IPosition } from './types'
 import { generateRandomShape } from './generateRandomShape'
+import { Shape } from './shape'
 import { fixDPI } from './fixDPI'
 
-const shapes: IShape[] = []
+const shapes: Shape[] = []
 
 function init(): void {
   const canvas = <HTMLCanvasElement | null>document.getElementById('canvas')
