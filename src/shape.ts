@@ -20,8 +20,12 @@ abstract class Shape {
 
   abstract draw(canvasContext: CanvasRenderingContext2D): void
 
-  onMouseMove(mousePosition: IPosition): void {
-    this.isHovered = this.getIsMouseOverShape(mousePosition)
+  onMouseMove(mousePosition: IPosition): boolean {
+    const isMouseOverShape = this.getIsMouseOverShape(mousePosition)
+
+    this.isHovered = isMouseOverShape
+
+    return isMouseOverShape
   }
 
   onClick(mousePosition: IPosition): boolean {

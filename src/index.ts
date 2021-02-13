@@ -18,12 +18,18 @@ function init(): void {
       .some((clickedOnShape) => clickedOnShape)
     
     if (!clickedOnAnyShape) shapes.push(generateRandomShape(mousePosition))
+
+    canvas.style.cursor = 'pointer'
   })
 
   canvas.addEventListener('mousemove', (event: MouseEvent) => {
     const mousePosition: IPosition = { x: event.pageX, y: event.pageY }
 
-    shapes.forEach((shape) => shape.onMouseMove(mousePosition))
+    const hoveredAnyShape = shapes
+      .map((shape) => shape.onMouseMove(mousePosition))
+      .some((hoveredShape) => hoveredShape)
+    
+    canvas.style.cursor = hoveredAnyShape ? 'pointer' : 'default'
   })
 
   const canvasContext = <CanvasRenderingContext2D>canvas.getContext('2d')
