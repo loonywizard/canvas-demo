@@ -10,9 +10,19 @@ function init(): void {
   if (!canvas) return
 
   canvas.addEventListener('click', (event: MouseEvent) => {
-    const position: IPosition = { x: event.pageX, y: event.pageY }
+    const mousePosition: IPosition = { x: event.pageX, y: event.pageY }
+
+    const clickedOnAnyShape = shapes
+      .map((shape) => shape.onClick(mousePosition))
+      .some((clickedOnShape) => clickedOnShape)
     
-    shapes.push(generateRandomShape(position))
+    if (!clickedOnAnyShape) shapes.push(generateRandomShape(mousePosition))
+  })
+
+  canvas.addEventListener('mousemove', (event: MouseEvent) => {
+    const mousePosition: IPosition = { x: event.pageX, y: event.pageY }
+
+    shapes.forEach((shape) => shape.onMouseMove(mousePosition))
   })
 
   const canvasContext = <CanvasRenderingContext2D>canvas.getContext('2d')
@@ -22,7 +32,7 @@ function init(): void {
   function loop(): void {
     fixDPI(<HTMLCanvasElement>canvas)
 
-    shapes.map((shape) => shape.draw(canvasContext))
+    shapes.forEach((shape) => shape.draw(canvasContext))
 
     window.requestAnimationFrame(loop)
   }
