@@ -16,3 +16,5 @@ yarn dev
 ```
 yarn lint
 ```
+
+![Alt text](/assets/screenshot.png "Optional Title")
